@@ -1,0 +1,55 @@
+﻿<Application x:Class="ThermalPowerStation.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ThermalPowerStation"
+             StartupUri="Windows/AutorizationWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Grid" x:Key="GridStyle">
+            <Setter Property="Background" Value="#F8FCFF" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="TextBoxStyle">
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="#F8FCFF"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#F8FCFF"/>
+            <Setter Property="Background" Value="{x:Null}" />
+
+            
+        </Style>
+        <Style TargetType="Border" x:Key="TextBlockBorderStyle">
+            <Setter Property="BorderBrush" Value="#F8FCFF"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#F8FCFF"/>
+            <Setter Property="Background" Value="{x:Null}" />
+
+        </Style>
+        <Style TargetType="Border" x:Key="BorderStyle">
+            <Setter Property="Background" Value="#0D4CD3" />
+            <Setter Property="CornerRadius" Value="10,10,10,10"/>
+        </Style>
+        <Style TargetType="Border" x:Key="BorderUpStyle">
+            <Setter Property="Background" Value="#ffffff" />
+            <Setter Property="Width" Value="1510"/>
+            <Setter Property="Height" Value="480"/>
+            <Setter Property="CornerRadius" Value="0,0,15,15"/>
+        </Style>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#0D4CD3"/>
+            <Setter Property="Background" Value="#F8FCFF"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            
+        </Style>
+        <Style TargetType="Button" x:Key="ButtonDataStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#F8FCFF"/>
+            <Setter Property="Background" Value="#0D4CD3"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlApi", "SqlApi\SqlApi.csproj", "{8FF55EA1-5461-4353-A65B-837521D83F84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThermalPowerStation", "ThermalPowerStation\ThermalPowerStation.csproj", "{8433C6D9-7585-4B05-8CDE-E7DA4E41A44B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FF55EA1-5461-4353-A65B-837521D83F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF55EA1-5461-4353-A65B-837521D83F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF55EA1-5461-4353-A65B-837521D83F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF55EA1-5461-4353-A65B-837521D83F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8433C6D9-7585-4B05-8CDE-E7DA4E41A44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8433C6D9-7585-4B05-8CDE-E7DA4E41A44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8433C6D9-7585-4B05-8CDE-E7DA4E41A44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8433C6D9-7585-4B05-8CDE-E7DA4E41A44B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2875683-D5E4-44E8-9E2B-36D52892496C}
+	EndGlobalSection
+EndGlobal
