@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThermalPowerStation.Classes;
 
 namespace ThermalPowerStation.Windows
 {
@@ -49,6 +50,8 @@ namespace ThermalPowerStation.Windows
             var respones = await client.GetStringAsync("Employee?number="+ HttpUtility.UrlEncode(TBNumber.Text) +"&password="+ HttpUtility.UrlEncode(TBPassword.Text));
             var jsonResult = JsonConvert.DeserializeObject(respones).ToString();
             var students = JsonConvert.DeserializeObject<List<Root>>(jsonResult);
+            Employee employee = new Employee();
+            employee.Id
             if (students.Count() == 0) 
             {
                 MessageBox.Show("Телефон или пароль указаны неверно");
