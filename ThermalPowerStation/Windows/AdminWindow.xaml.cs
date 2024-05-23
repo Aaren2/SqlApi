@@ -54,8 +54,19 @@ namespace ThermalPowerStation.Windows
             InitializeComponent();
             WindowState = WindowState.Maximized;
             GetAutorizatio();
+            GetEmployee();
 
-
+        }
+        private class Root1
+        {
+            public string Column1 { get; set; }
+        }
+        private async void GetEmployee()
+        {
+            var respones = await client.GetStringAsync("Employee/" + id);
+            var jsonResult = JsonConvert.DeserializeObject(respones).ToString();
+            var students = JsonConvert.DeserializeObject<List<Root1>>(jsonResult);
+            TBHolder.Text += students.First().Column1;
         }
         private async void GetAutorizatio()
         {
@@ -169,8 +180,10 @@ namespace ThermalPowerStation.Windows
         {
             if (idreading != null)
             {
-                GetDel();
-                
+                if (MessageBox.Show("Точно хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No, MessageBoxOptions.DefaultDesktopOnly) == MessageBoxResult.Yes)
+                {
+                    GetDel();
+                }
             }
             else
             {

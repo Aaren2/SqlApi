@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThermalPowerStation.Windows"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
         mc:Ignorable="d"
         Title="AutorizationWindow" Height="880" Width="1620">
     <Window.Resources>
+
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
@@ -53,8 +57,11 @@
         <Border Style="{StaticResource BorderStyle}" Grid.Column="1"  Grid.Row="1" >
             <StackPanel>
                 <TextBlock Style="{StaticResource TextBlockStyle}" Width="Auto" Height="Auto" Margin="60,24,60,64" Text="Авторизация"  TextAlignment="Center" FontSize="24" />
-                <TextBox x:Name="TBNumber" Style="{StaticResource TextBoxStyle}" Margin="60,0,60,56" Text="Номер телефона" GotFocus="TB_GotFocus" LostFocus="TB_LostFocus"/>
-                <TextBox x:Name="TBPassword" Style="{StaticResource TextBoxStyle}" Margin="60,0,60,56" Text="Пароль" GotFocus="TB_GotFocus" LostFocus="TB_LostFocus"/>
+                <TextBlock  Style="{StaticResource TextBlockStyle}"  Margin="60,0,60,0"  Text="Номер телефона:"/>
+                <TextBox x:Name="TBNumber" Style="{StaticResource TextBoxStyle}" Margin="60,0,60,56" />
+                <TextBlock  Style="{StaticResource TextBlockStyle}"  Margin="60,0,60,0"  Text="Пароль:"/>
+                <PasswordBox x:Name="TBPassword" Style="{StaticResource PasswordBoxStyle}" Margin="60,0,60,56"/>
+
                 <Button x:Name="BTN" Template="{DynamicResource ButtonTemplate1}" Style="{StaticResource ButtonStyle}" Margin="60,0,60,56" Content="Авторизация" Click="Button_Click"/>
                 <Border Style="{StaticResource TextBlockBorderStyle}" Margin="60,0,60,56" Visibility="Hidden">
                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Забыли пароль?" TextDecorations="{x:Null}" Visibility="Hidden"/>

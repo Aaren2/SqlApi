@@ -52,7 +52,7 @@
         </Grid.ColumnDefinitions>
         <Border  Style="{StaticResource BorderStyle}" Grid.Column="1"  Grid.Row="1" Visibility="Visible" >
             <StackPanel>
-                <TextBlock Style="{StaticResource TextBlockStyle}" Width="Auto" Height="Auto" Margin="60,24,60,64" Text="Добавление"  TextAlignment="Center" FontSize="24" />
+                <TextBlock x:Name="TBHolder" Style="{StaticResource TextBlockStyle}" Width="Auto" Height="Auto" Margin="30,24,30,64" Text="Добавление в таблицу: " TextWrapping="Wrap" TextAlignment="Center" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
                 <StackPanel>
                     <TextBox Visibility="Collapsed" x:Name="TBIdSensor" Style="{StaticResource TextBoxStyle}" Margin="60,0,60,28" Text="Сенсор" GotFocus="TB_GotFocus" LostFocus="TB_LostFocus"/>
                     <TextBox Visibility="Collapsed" x:Name="TBReadings" Style="{StaticResource TextBoxStyle}" Margin="60,0,60,28" Text="Показания" GotFocus="TB_GotFocus" LostFocus="TB_LostFocus"/>

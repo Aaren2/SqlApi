@@ -12,7 +12,7 @@ namespace SqlApi.Controllers
     public class EmployeeController : ControllerBase
     {
         SqlConnection con = new SqlConnection(@"server=LAPTOP-9RDCSSMJ\SQLEXPRESS;database=DBThermalPowerStation;Integrated Security=true;");
-        [HttpGet]
+        [HttpGet("{number}&{password}")]
         public string Get(string number,string password)
         {
             SqlDataAdapter adapter = new SqlDataAdapter("Select dbo.FN_AutorizationEmplyee('"+ number +"','"+ password + "'), IdEmployee From Employee Where Number = '" + number + "' and Password ='" + password + "' ", con);
@@ -20,5 +20,14 @@ namespace SqlApi.Controllers
             adapter.Fill(dataTable);
             return JsonConvert.SerializeObject(dataTable);
         }
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("Select ConCat(FirstName,' ',LastName,' ',MiddleName) From Employee Where IdEmployee = "+id, con);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return JsonConvert.SerializeObject(dataTable);
+        }
+
     }
 }

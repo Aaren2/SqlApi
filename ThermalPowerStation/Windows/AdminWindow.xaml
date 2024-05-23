@@ -44,6 +44,8 @@
             <RowDefinition Height="139*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
+            <TextBlock x:Name="TBHolder" Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Left" Text="Автоматизированная информационная система для Системного администратора: " Margin="10,0,0,0"/>
+
             <ComboBox x:Name="CBSensor" Height="32" Width="136.9" Margin="0,55,0,0" SelectionChanged="CBSensor_SelectionChanged" SelectedIndex="0"  ></ComboBox>
             <DataGrid x:Name="DG" Margin="10,10,10,10" Width="500" Height="400" SelectionChanged="DG_SelectionChanged"  />
         </StackPanel>

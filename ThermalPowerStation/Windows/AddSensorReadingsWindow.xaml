@@ -52,7 +52,7 @@
         </Grid.ColumnDefinitions>
         <Border Style="{StaticResource BorderStyle}" Grid.Column="1"  Grid.Row="1" >
             <StackPanel>
-                <TextBlock Style="{StaticResource TextBlockStyle}" Width="Auto" Height="Auto" Margin="60,24,60,64" Text="Добавление"  TextAlignment="Center" FontSize="24" />
+                <TextBlock Style="{StaticResource TextBlockStyle}" Width="Auto" Height="Auto" Margin="30,24,30,64" Text="Добавление в таблицу: Показатели датчиков" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 
                 <TextBox x:Name="TBSensorReadings" Style="{StaticResource TextBoxStyle}" Margin="60,0,60,56" Text="Показания" GotFocus="TB_GotFocus" LostFocus="TB_LostFocus"/>
                 <DatePicker x:Name="DP" Margin="60,0,60,56" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF0D4CD3"/>

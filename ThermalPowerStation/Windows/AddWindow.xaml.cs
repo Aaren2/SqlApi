@@ -35,6 +35,8 @@ namespace ThermalPowerStation.Windows
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             InitializeComponent();
+            TBHolder.Text += table;
+            DPReadingsDate.SelectedDate = DateTime.Now;
             WindowState = WindowState.Maximized;
             if (table == "SensorReadings")
             {

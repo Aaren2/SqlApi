@@ -52,7 +52,10 @@
         </Grid.ColumnDefinitions>
         <Border Style="{StaticResource BorderUpStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2">
             <StackPanel>
+                <TextBlock x:Name="TBHolder" Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Left" Text="Автоматизированная информационная система для Главного инженера: " Margin="10,0,0,0"/>
+
                 <ComboBox x:Name="CBSensor" Height="32" Width="136.9" Margin="0,55,0,0" SelectionChanged="CBSensor_SelectionChanged" SelectedIndex="0"  ></ComboBox>
+                <TextBlock Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Center" Text="Показания счетчика:" Margin="10,0,0,0" VerticalAlignment="Center" FontSize="16"/>
                 <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <lvc:CartesianChart x:Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Right" Width="656" Height="322" Margin="34,10,0,0"  >
                         <lvc:CartesianChart.AxisY>

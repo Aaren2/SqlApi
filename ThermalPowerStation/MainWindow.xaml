@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ThermalPowerStation"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid>
         <Button Margin="322,310,322,10" Click="Button_Click"/>
         <DataGrid x:Name="dgSensorReadings" Margin="0,0,0,85" AutoGenerateColumns="False">

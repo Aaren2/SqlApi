@@ -46,7 +46,7 @@ namespace ThermalPowerStation.Windows
         }
         private async void GetAutorizatio()
         {
-            var respones = await client.GetStringAsync("Employee?number="+ HttpUtility.UrlEncode(TBNumber.Text) +"&password="+ HttpUtility.UrlEncode(TBPassword.Text));
+            var respones = await client.GetStringAsync("Employee/"+ HttpUtility.UrlEncode(TBNumber.Text) +"&"+ HttpUtility.UrlEncode(TBPassword.Password));
             var jsonResult = JsonConvert.DeserializeObject(respones).ToString();
             var students = JsonConvert.DeserializeObject<List<Root>>(jsonResult);
             if (students.Count() == 0) 
@@ -83,7 +83,7 @@ namespace ThermalPowerStation.Windows
         private void TB_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            if (tb.Text == "Номер телефона" || tb.Text == "Пароль") 
+            if (tb.Text == "Номер телефона" ) 
             {
                 tb.Text = null;
             }
@@ -98,11 +98,9 @@ namespace ThermalPowerStation.Windows
                 { 
                     tb.Text = "Номер телефона";
                 }
-                if (tb.Name == "TBPassword")
-                {
-                    tb.Text = "Пароль";
-                }
+                
             }
         }
+        
     }
 }
