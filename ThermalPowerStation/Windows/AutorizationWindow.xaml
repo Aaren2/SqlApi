@@ -54,6 +54,8 @@
             <ColumnDefinition Width="400*"/>
             <ColumnDefinition Width="760*"/>
         </Grid.ColumnDefinitions>
+        <TextBlock x:Name="TBHolder" Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Center" Text="Автоматизированная информационная система для управления процессом производства энергии" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" />
+
         <Border Style="{StaticResource BorderStyle}" Grid.Column="1"  Grid.Row="1" >
             <StackPanel>
                 <TextBlock Style="{StaticResource TextBlockStyle}" Width="Auto" Height="Auto" Margin="60,24,60,64" Text="Авторизация"  TextAlignment="Center" FontSize="24" />

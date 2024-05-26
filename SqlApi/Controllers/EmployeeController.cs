@@ -11,7 +11,7 @@ namespace SqlApi.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        SqlConnection con = new SqlConnection(@"server=LAPTOP-9RDCSSMJ\SQLEXPRESS;database=DBThermalPowerStation;Integrated Security=true;");
+        SqlConnection con = new SqlConnection(@"server=DESKTOP-9135E6U;database=DBThermalPowerStation;Integrated Security=true;");
         [HttpGet("{number}&{password}")]
         public string Get(string number,string password)
         {

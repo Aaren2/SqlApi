@@ -53,9 +53,9 @@
         <Border Style="{StaticResource BorderUpStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2">
             <StackPanel>
                 <TextBlock x:Name="TBHolder" Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Left" Text="Автоматизированная информационная система для Сотрудника отдела контроля качества: " Margin="10,0,0,0"/>
-                   
-                <ComboBox x:Name="CBSensor" Height="32" Width="136.9" Margin="0,55,0,0" SelectionChanged="CBSensor_SelectionChanged" SelectedIndex="0"  ></ComboBox>
-                <TextBlock Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Center" Text="Показания счетчика:" Margin="10,0,0,0" VerticalAlignment="Center" FontSize="16"/>
+                <TextBlock Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Center" Margin="0,55,0,0" Text="Показания счетчика:"  VerticalAlignment="Center" FontSize="16"/>
+                <ComboBox x:Name="CBSensor" Height="32" Width="136.9"  SelectionChanged="CBSensor_SelectionChanged" SelectedIndex="0"  ></ComboBox>
+                
                 <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <lvc:CartesianChart x:Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Right" Width="656" Height="322" Margin="34,10,0,0"  >
                         <lvc:CartesianChart.AxisY>
@@ -81,9 +81,12 @@
                 <Button x:Name="BtnAdd" Template="{DynamicResource ButtonTemplate1}" Style="{StaticResource ButtonDataStyle}" Content="Отчёт" Margin="300,100,300,24" Click="Btn_Click"/>
             </StackPanel>
         </Border>
-        <DataGrid x:Name="DGCheck" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-        </DataGrid>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBlock Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Center" Text="Желательные показатели:"  VerticalAlignment="Center" FontSize="16"/>
+            <DataGrid x:Name="DGCheck"  HorizontalAlignment="Center" VerticalAlignment="Center"></DataGrid>
+        </StackPanel>
+        
+        
 
 
 

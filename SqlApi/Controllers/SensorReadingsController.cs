@@ -11,7 +11,7 @@ namespace SqlApi.Controllers
     [ApiController]
     public class SensorReadingsController : ControllerBase
     {
-        SqlConnection con = new SqlConnection(@"server=LAPTOP-9RDCSSMJ\SQLEXPRESS;database=DBThermalPowerStation;Integrated Security=true;");
+        SqlConnection con = new SqlConnection(@"server=DESKTOP-9135E6U;database=DBThermalPowerStation;Integrated Security=true;");
         // GET: api/<SensorReadingsController>
 
 
@@ -40,7 +40,14 @@ namespace SqlApi.Controllers
             adapter.Fill(dataTable);
             return JsonConvert.SerializeObject(dataTable);
         }
-
+        [HttpGet("Select/{id}")]
+        public string Get(int id)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("Select sr.* From SensorReadings sr join Sensor s on sr.IdSensor = s.IdSensor join Equipment e on s.IdEquipment = e.IdEquipment join ThermalPowerStation tps on e.IdStation = tps.IdStation join Employee em on tps.IdStation = em.IdStation where IdEmployee = " + id, con);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return JsonConvert.SerializeObject(dataTable);
+        }
 
 
         [HttpGet("Insert/{idsensor}&{readings}&{data}")]

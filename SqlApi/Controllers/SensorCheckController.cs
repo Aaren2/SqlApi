@@ -12,7 +12,7 @@ namespace SqlApi.Controllers
     public class SensorCheckController : ControllerBase
     {
 
-        SqlConnection con = new SqlConnection(@"server=LAPTOP-9RDCSSMJ\SQLEXPRESS;database=DBThermalPowerStation;Integrated Security=true;");
+        SqlConnection con = new SqlConnection(@"server=DESKTOP-9135E6U;database=DBThermalPowerStation;Integrated Security=true;");
         // GET api/<SensorCheckController>/5
         [HttpGet("{id}")]
         public string Get(int id)

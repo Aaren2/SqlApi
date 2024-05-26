@@ -50,8 +50,7 @@ namespace ThermalPowerStation.Windows
             var respones = await client.GetStringAsync("Employee/"+ HttpUtility.UrlEncode(TBNumber.Text) +"&"+ HttpUtility.UrlEncode(TBPassword.Password));
             var jsonResult = JsonConvert.DeserializeObject(respones).ToString();
             var students = JsonConvert.DeserializeObject<List<Root>>(jsonResult);
-            Employee employee = new Employee();
-            employee.Id
+           
             if (students.Count() == 0) 
             {
                 MessageBox.Show("Телефон или пароль указаны неверно");
@@ -101,7 +100,6 @@ namespace ThermalPowerStation.Windows
                 { 
                     tb.Text = "Номер телефона";
                 }
-                
             }
         }
         

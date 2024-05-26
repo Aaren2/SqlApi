@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -17,6 +18,8 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using Newtonsoft.Json;
 using ThermalPowerStation.Classes;
+
+using Excel = Microsoft.Office.Interop.Excel;
 
 
 namespace ThermalPowerStation.Windows
@@ -34,6 +37,7 @@ namespace ThermalPowerStation.Windows
 
         List<Root> students;
         List<SensorReadings> students1;
+        List<SensorReadings> students2;
 
         private class Root
         {
@@ -176,11 +180,65 @@ namespace ThermalPowerStation.Windows
             DGCheck.ItemsSource = students2;
         }
 
-        private void Btn_Click(object sender, RoutedEventArgs e)
+        private async void Get()
         {
-            //AddSensorReadingsWindow addSensorReadingsWindow = new AddSensorReadingsWindow(CBSensor.SelectedValue + "", id);
-            //addSensorReadingsWindow.Show();
-            //this.Close();
+            var respones2 = await client.GetStringAsync("SensorReadings/Select/" + id);
+            var jsonResult2 = JsonConvert.DeserializeObject(respones2).ToString();
+            students2 = JsonConvert.DeserializeObject<List<SensorReadings>>(jsonResult2);
+
+            Excel.Application oXL;
+            Excel._Workbook oWB;
+            Excel._Worksheet oSheet;
+            Excel.Range oRng;
+            try
+            {
+
+
+                oXL = new Excel.Application();
+                oXL.Visible = true;
+
+                oWB = (Excel._Workbook)(oXL.Workbooks.Add(Missing.Value));
+                oSheet = (Excel._Worksheet)oWB.ActiveSheet;
+
+
+                oSheet.Cells[1, 1] = "Счетчик";
+                oSheet.Cells[1, 2] = "Показания";
+                oSheet.Cells[1, 3] = "Тип показаний";
+                oSheet.Cells[1, 4] = "Дата";
+
+
+                for (int i = 0; i < students2.Count; i++)
+                {
+                    oSheet.Cells[i + 2, 1] = students2[i].IdSensor;
+                    oSheet.Cells[i + 2, 2] = students2[i].Readings;
+                    oSheet.Cells[i + 2, 3] = students2[i].DataType;
+                    oSheet.Cells[i + 2, 4] = students2[i].ReadingsDate;
+                }
+
+                oSheet.get_Range("A1", "D1").Font.Bold = true;
+                oSheet.get_Range("A1", "D1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                oRng = oSheet.get_Range("A1", "D1");
+                oRng.EntireColumn.AutoFit();
+
+                oXL.Visible = true;
+                oXL.UserControl = true;
+            }
+            catch (Exception theException)
+            {
+                String errorMessage;
+                errorMessage = "Error: ";
+                errorMessage = String.Concat(errorMessage, theException.Message);
+                errorMessage = String.Concat(errorMessage, " Line: ");
+                errorMessage = String.Concat(errorMessage, theException.Source);
+
+                MessageBox.Show(errorMessage, "Error");
+            }
         }
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {           
+            Get();               
+        }       
     }
 }
