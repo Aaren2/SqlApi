@@ -66,7 +66,7 @@
                         </lvc:CartesianChart.AxisX>
                     </lvc:CartesianChart>
 
-                    <DataGrid x:Name="DGSensor"  Width="656"  Margin="34,10,0,0" SelectionChanged="DGSensor_SelectionChanged" Height="322"/>
+                    <DataGrid x:Name="DGSensor"  Width="656"  Margin="34,10,0,0" SelectionChanged="DGSensor_SelectionChanged" Height="322" LoadingRow="DGSensor_LoadingRow"/>
                 </WrapPanel>
             </StackPanel>
             <Border.Effect>

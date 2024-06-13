@@ -33,6 +33,7 @@ namespace ThermalPowerStation.Windows
 
         List<Root> students;
         List<SensorReadings> students1;
+        List<Check> checks;
 
         private class Root
         {
@@ -209,8 +210,8 @@ namespace ThermalPowerStation.Windows
         {
             var respones2 = await client.GetStringAsync("SensorCheck/"+ id +"");
             var jsonResult2 = JsonConvert.DeserializeObject(respones2).ToString();
-            var students2 = JsonConvert.DeserializeObject<List<Check>>(jsonResult2);
-            DGCheck.ItemsSource = students2;
+            checks = JsonConvert.DeserializeObject<List<Check>>(jsonResult2);
+            DGCheck.ItemsSource = checks;
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -266,6 +267,27 @@ namespace ThermalPowerStation.Windows
                 DGSensor.SelectedIndex = -1;
             }
             
+        }
+
+        private void DGSensor_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            if (e.Row.GetIndex() <= students1.Count() - 1)
+            {
+                if (students1.ElementAtOrDefault(e.Row.GetIndex()).DataType != "киловатт-час")
+                {
+                    bool a = students1.ElementAtOrDefault(e.Row.GetIndex()).Readings > checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings + checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings / 10;
+                    bool b = students1.ElementAtOrDefault(e.Row.GetIndex()).Readings < checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings - checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings / 10;
+                    if (a || b)
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.Red);
+
+                    }
+                    else
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.White);
+                    }
+                }
+            }
         }
         //sUOiko0YsA
     }

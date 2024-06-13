@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using static SqlApi.Controllers.ClassHelper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,7 +14,7 @@ namespace SqlApi.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        SqlConnection con = new SqlConnection(@"server=DESKTOP-9135E6U;database=DBThermalPowerStation;Integrated Security=true;");
+        SqlConnection con = new SqlConnection(SQL);
         
         [HttpGet("Select/")]
         public string Get()

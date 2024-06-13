@@ -38,6 +38,7 @@ namespace ThermalPowerStation.Windows
         List<Root> students;
         List<SensorReadings> students1;
         List<SensorReadings> students2;
+        List<Check> checks;
 
         private class Root
         {
@@ -62,8 +63,7 @@ namespace ThermalPowerStation.Windows
             InitializeComponent();
             WindowState = WindowState.Maximized;
             GetAutorizatio();
-            GetCheckSensor();
-            GetEmployee();
+            
 
         }
         private class Root1
@@ -79,7 +79,8 @@ namespace ThermalPowerStation.Windows
         }
         private async void GetAutorizatio()
         {
-
+            GetCheckSensor();
+            GetEmployee();
             var respones = await client.GetStringAsync("SensorReadings/Select/IdEmployee=" + id);
             var jsonResult = JsonConvert.DeserializeObject(respones).ToString();
             students = JsonConvert.DeserializeObject<List<Root>>(jsonResult);
@@ -176,8 +177,8 @@ namespace ThermalPowerStation.Windows
         {
             var respones2 = await client.GetStringAsync("SensorCheck/" + id + "");
             var jsonResult2 = JsonConvert.DeserializeObject(respones2).ToString();
-            var students2 = JsonConvert.DeserializeObject<List<Check>>(jsonResult2);
-            DGCheck.ItemsSource = students2;
+            checks = JsonConvert.DeserializeObject<List<Check>>(jsonResult2);
+            DGCheck.ItemsSource = checks;
         }
 
         private async void Get()
@@ -239,6 +240,27 @@ namespace ThermalPowerStation.Windows
         private void Btn_Click(object sender, RoutedEventArgs e)
         {           
             Get();               
-        }       
+        }
+
+        private void DGSensor_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            if (e.Row.GetIndex() <= students1.Count() - 1)
+            {
+                if (students1.ElementAtOrDefault(e.Row.GetIndex()).DataType != "киловатт-час")
+                {
+                    bool a = students1.ElementAtOrDefault(e.Row.GetIndex()).Readings > checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings + checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings / 10;
+                    bool b = students1.ElementAtOrDefault(e.Row.GetIndex()).Readings < checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings - checks.Where(n => n.IdSensor == students1.ElementAtOrDefault(e.Row.GetIndex()).IdSensor).First().Readings / 10;
+                    if (a || b)
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.Red);
+
+                    }
+                    else
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.White);
+                    }
+                }
+            }
+        }
     }
 }
