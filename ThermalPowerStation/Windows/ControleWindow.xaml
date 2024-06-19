@@ -54,7 +54,7 @@
             <StackPanel>
                 <TextBlock x:Name="TBHolder" Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Left" Text="Автоматизированная информационная система для Сотрудника отдела контроля качества: " Margin="10,0,0,0"/>
                 <TextBlock Style="{StaticResource TextBlockHolderStyle}" HorizontalAlignment="Center" Margin="0,55,0,0" Text="Показания счетчика:"  VerticalAlignment="Center" FontSize="16"/>
-                <ComboBox x:Name="CBSensor" Height="32" Width="136.9"  SelectionChanged="CBSensor_SelectionChanged" SelectedIndex="0"  ></ComboBox>
+                <ComboBox x:Name="CBSensor" Height="32" Width="136.9"  SelectionChanged="CBSensor_SelectionChanged"  ></ComboBox>
                 
                 <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <lvc:CartesianChart x:Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Right" Width="656" Height="322" Margin="34,10,0,0"  >

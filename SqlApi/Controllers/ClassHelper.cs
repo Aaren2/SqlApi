@@ -2,6 +2,6 @@
 {
     public class ClassHelper
     {
-        public static string SQL = @"server=LAPTOP-9RDCSSMJ\SQLEXPRESS;database=DBThermalPowerStation;Integrated Security=true;";
+        public static string SQL = @"server=DESKTOP-9135E6U;database=DBThermalPowerStation;Integrated Security=true;";
     }
 }

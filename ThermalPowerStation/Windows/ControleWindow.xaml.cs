@@ -63,7 +63,7 @@ namespace ThermalPowerStation.Windows
             InitializeComponent();
             WindowState = WindowState.Maximized;
             GetAutorizatio();
-            
+            CBSensor.SelectedIndex = 0;
 
         }
         private class Root1
@@ -104,13 +104,13 @@ namespace ThermalPowerStation.Windows
 
             SeriesCollection = new SeriesCollection
             {
-                new LineSeries
-                {
-                    Title =students.First().IdSensor,
-                    Values = data,
-                    PointGeometry = DefaultGeometries.Circle,
-                    PointGeometrySize = 15
-                }
+                //new LineSeries
+                //{
+                //    Title =students.First().IdSensor,
+                //    Values = data,
+                //    PointGeometry = DefaultGeometries.Circle,
+                //    PointGeometrySize = 15
+                //}
             };
             Labels = labs;
             DataContext = this;
@@ -122,7 +122,8 @@ namespace ThermalPowerStation.Windows
             }
 
 
-            DGSensor.ItemsSource = students1;
+            //DGSensor.ItemsSource = students1;
+           
         }
 
         private async void GetSensor(Root root)
@@ -143,7 +144,6 @@ namespace ThermalPowerStation.Windows
                 lab += (i.ReadingsDate + "").Split(' ')[0] + ",";
             }
             string[] labs = lab.Split(',');
-
 
             SeriesCollection.Clear();
             SeriesCollection.Add(
